@@ -34,7 +34,7 @@ class Comment
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
-        $this->status = 'pending'; // Par défaut, en attente de validation
+        $this->status = 'pending';
     }
 
     public function getId(): ?int

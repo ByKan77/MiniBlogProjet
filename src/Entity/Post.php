@@ -155,7 +155,7 @@ class Post
     }
 
     /**
-     * Get approved comments only
+     * Récupère uniquement les commentaires approuvés
      */
     public function getApprovedComments(): Collection
     {

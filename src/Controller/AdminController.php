@@ -41,13 +41,12 @@ class AdminController extends AbstractController
     #[Route('/users/{id}/toggle', name: 'app_admin_user_toggle', methods: ['POST'])]
     public function toggleUser(User $user, EntityManagerInterface $entityManager): Response
     {
-        // Désactiver un utilisateur en retirant son rôle USER
+        // On active ou désactive l'utilisateur en gérant son rôle USER
         if (in_array('ROLE_USER', $user->getRoles())) {
             $roles = $user->getRoles();
             $roles = array_diff($roles, ['ROLE_USER']);
             $user->setRoles($roles);
         } else {
-            // Réactiver en ajoutant ROLE_USER
             $roles = $user->getRoles();
             if (!in_array('ROLE_USER', $roles)) {
                 $roles[] = 'ROLE_USER';

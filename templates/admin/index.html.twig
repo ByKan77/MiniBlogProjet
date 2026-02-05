@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration - Blog Mini{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4"><i class="bi bi-speedometer2"></i> Tableau de bord</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Articles</h6>
+                        <h3>{{ posts_count|default(0) }}</h3>
+                    </div>
+                    <i class="bi bi-journal-text" style="font-size: 3rem; opacity: 0.5;"></i>
+                </div>
+                <a href="{{ path('app_admin_posts') }}" class="text-white text-decoration-none">Voir tous →</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Utilisateurs</h6>
+                        <h3>{{ users_count|default(0) }}</h3>
+                    </div>
+                    <i class="bi bi-people" style="font-size: 3rem; opacity: 0.5;"></i>
+                </div>
+                <a href="{{ path('app_admin_users') }}" class="text-white text-decoration-none">Voir tous →</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Commentaires</h6>
+                        <h3>{{ comments_count|default(0) }}</h3>
+                    </div>
+                    <i class="bi bi-chat-dots" style="font-size: 3rem; opacity: 0.5;"></i>
+                </div>
+                <a href="{{ path('app_admin_comments') }}" class="text-white text-decoration-none">Voir tous →</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">En attente</h6>
+                        <h3>{{ pending_comments_count|default(0) }}</h3>
+                    </div>
+                    <i class="bi bi-clock-history" style="font-size: 3rem; opacity: 0.5;"></i>
+                </div>
+                <a href="{{ path('app_admin_comments') }}" class="text-white text-decoration-none">Voir →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Actions rapides</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="{{ path('app_post_new') }}" class="btn btn-primary">
+                        <i class="bi bi-plus-circle"></i> Nouvel article
+                    </a>
+                    <a href="{{ path('app_admin_posts') }}" class="btn btn-outline-primary">
+                        <i class="bi bi-journal-text"></i> Gérer les articles
+                    </a>
+                    <a href="{{ path('app_admin_users') }}" class="btn btn-outline-success">
+                        <i class="bi bi-people"></i> Gérer les utilisateurs
+                    </a>
+                    <a href="{{ path('app_admin_comments') }}" class="btn btn-outline-warning">
+                        <i class="bi bi-chat-dots"></i> Gérer les commentaires
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

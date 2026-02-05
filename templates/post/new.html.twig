@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel article - Blog Mini{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <h1 class="mb-4"><i class="bi bi-plus-circle"></i> Créer un nouvel article</h1>
+
+        {{ include('post/_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

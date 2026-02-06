@@ -1,20 +1,27 @@
 /* ============================================
    STYLE NÉO-BRUTALISTE - BLOG MODERNE 2026
-   Palette: Noir #000000 | Blanc #FFFFFF | Orange Néon #FF5F1F | Gris Clair #F0F0F0
-   Ce fichier surcharge Bootstrap avec le style néo-brutaliste
+   Palette Claire et Moderne : Bleu doux, Gris clair, Blanc cassé
+   Ce fichier surcharge Bootstrap avec le style néo-brutaliste adouci
    ============================================ */
 
-/* Variables CSS */
+/* Variables CSS - Palette Claire et Moderne */
 :root {
-    --color-black: #000000;
-    --color-white: #FFFFFF;
-    --color-orange: #FF5F1F;
-    --color-gray: #F0F0F0;
-    --shadow-brutal: 8px 8px 0px 0px var(--color-black);
-    --shadow-brutal-hover: 4px 4px 0px 0px var(--color-black);
-    --border-thick: 4px solid var(--color-black);
-    --border-medium: 3px solid var(--color-black);
-    --border-thin: 2px solid var(--color-black);
+    --color-primary: #4A90E2;        /* Bleu moderne et doux */
+    --color-primary-dark: #357ABD;   /* Bleu foncé pour hover */
+    --color-text: #2C3E50;          /* Gris foncé doux pour le texte */
+    --color-text-light: #5A6C7D;   /* Gris moyen pour texte secondaire */
+    --color-white: #FFFFFF;         /* Blanc pur */
+    --color-bg: #FAFAFA;            /* Fond très clair */
+    --color-bg-card: #FFFFFF;       /* Fond des cartes */
+    --color-gray: #E8ECF1;          /* Gris très clair pour bordures */
+    --color-gray-light: #F5F7FA;   /* Gris ultra clair */
+    --color-accent: #52B788;        /* Vert doux pour accents */
+    --shadow-brutal: 6px 6px 0px 0px rgba(44, 62, 80, 0.1);
+    --shadow-brutal-hover: 3px 3px 0px 0px rgba(44, 62, 80, 0.15);
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --border-thick: 3px solid var(--color-gray);
+    --border-medium: 2px solid var(--color-gray);
+    --border-thin: 1px solid var(--color-gray);
 }
 
 /* Important: Surcharge Bootstrap - on garde la structure mais on change le style */
@@ -26,26 +33,28 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--color-white);
-    color: var(--color-black);
-    line-height: 1.6;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.7;
     margin: 0;
     padding: 0;
 }
 
 /* Typographie */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 800;
-    color: var(--color-black);
+    font-weight: 700;
+    color: var(--color-text);
     margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
 h1 {
     font-size: 2.5rem;
-    border-bottom: var(--border-thick);
+    border-bottom: var(--border-medium);
+    border-bottom-color: var(--color-primary);
     padding-bottom: 0.5rem;
     display: inline-block;
+    color: var(--color-text);
 }
 
 h2 {
@@ -61,47 +70,49 @@ p {
 }
 
 a {
-    color: var(--color-black);
+    color: var(--color-primary);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     transition: all 0.2s ease;
 }
 
 a:hover {
-    color: var(--color-orange);
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 /* Navbar Néo-Brutaliste - Surcharge Bootstrap */
 .navbar {
-    background-color: var(--color-white) !important;
-    border-bottom: var(--border-thick) !important;
+    background-color: var(--color-bg-card) !important;
+    border-bottom: var(--border-medium) !important;
     padding: 1rem 0 !important;
-    box-shadow: 0 4px 0px 0px var(--color-black) !important;
+    box-shadow: var(--shadow-soft) !important;
     border-radius: 0 !important;
 }
 
 .navbar-brand {
-    font-weight: 900;
+    font-weight: 800;
     font-size: 1.5rem;
-    color: var(--color-black) !important;
+    color: var(--color-primary) !important;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .navbar-brand:hover {
-    color: var(--color-orange) !important;
+    color: var(--color-primary-dark) !important;
 }
 
 .nav-link {
-    color: var(--color-black) !important;
-    font-weight: 600 !important;
-    font-size: 0.85rem !important;
+    color: var(--color-text) !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
     padding: 0.5rem 0.75rem !important;
     margin: 0 0.25rem !important;
     border: var(--border-thin) !important;
-    background-color: var(--color-white) !important;
+    background-color: transparent !important;
     transition: all 0.2s ease !important;
-    border-radius: 0 !important;
+    border-radius: 4px !important;
     white-space: nowrap !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -116,19 +127,22 @@ a:hover {
 }
 
 .nav-link:hover {
-    background-color: var(--color-orange) !important;
+    background-color: var(--color-primary) !important;
     color: var(--color-white) !important;
+    border-color: var(--color-primary) !important;
+    transform: translateY(-1px);
 }
 
 .nav-link-disabled {
     cursor: default !important;
     pointer-events: none !important;
-    opacity: 0.8 !important;
+    opacity: 0.6 !important;
+    background-color: transparent !important;
 }
 
 .nav-link-disabled:hover {
-    background-color: var(--color-white) !important;
-    color: var(--color-black) !important;
+    background-color: transparent !important;
+    color: var(--color-text) !important;
 }
 
 .nav-link-disabled {
@@ -144,7 +158,7 @@ a:hover {
 }
 
 .navbar-toggler:focus {
-    box-shadow: 4px 4px 0px 0px var(--color-orange) !important;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2) !important;
     outline: none !important;
 }
 
@@ -158,29 +172,30 @@ a:hover {
 
 /* Cards Néo-Brutalistes - Surcharge Bootstrap */
 .card {
-    background-color: var(--color-white) !important;
-    border: var(--border-thick) !important;
-    border-radius: 0 !important;
-    box-shadow: var(--shadow-brutal) !important;
+    background-color: var(--color-bg-card) !important;
+    border: var(--border-medium) !important;
+    border-radius: 8px !important;
+    box-shadow: var(--shadow-soft) !important;
     margin-bottom: 2rem !important;
-    transition: all 0.2s ease !important;
+    transition: all 0.3s ease !important;
     overflow: hidden !important;
 }
 
 .card:hover {
-    box-shadow: var(--shadow-brutal-hover);
-    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-brutal);
+    transform: translateY(-2px);
+    border-color: var(--color-primary);
 }
 
 .card-header {
-    background-color: var(--color-black) !important;
+    background-color: var(--color-primary) !important;
     color: var(--color-white) !important;
-    border-bottom: var(--border-thick) !important;
+    border-bottom: var(--border-medium) !important;
     padding: 1rem 1.5rem !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
-    border-radius: 0 !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0.02em !important;
+    border-radius: 8px 8px 0 0 !important;
 }
 
 .card-body {
@@ -196,10 +211,10 @@ a:hover {
 /* Boutons Néo-Brutalistes - Surcharge Bootstrap */
 .btn {
     border: var(--border-medium) !important;
-    border-radius: 0 !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0.02em !important;
     padding: 0.75rem 1.5rem !important;
     transition: all 0.2s ease !important;
     cursor: pointer !important;
@@ -207,57 +222,61 @@ a:hover {
 }
 
 .btn-primary {
-    background-color: var(--color-orange) !important;
+    background-color: var(--color-primary) !important;
     color: var(--color-white) !important;
-    border-color: var(--color-black) !important;
+    border-color: var(--color-primary) !important;
 }
 
 .btn-primary:hover {
-    background-color: var(--color-black) !important;
-    color: var(--color-white) !important;
+    background-color: var(--color-primary-dark) !important;
+    border-color: var(--color-primary-dark) !important;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
 }
 
 .btn-secondary {
-    background-color: var(--color-gray);
-    color: var(--color-black);
-    border-color: var(--color-black);
+    background-color: var(--color-gray-light);
+    color: var(--color-text);
+    border-color: var(--color-gray);
 }
 
 .btn-secondary:hover {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-gray);
+    color: var(--color-text);
+    border-color: var(--color-gray);
 }
 
 .btn-outline-primary {
-    background-color: var(--color-white);
-    color: var(--color-orange);
-    border-color: var(--color-orange);
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .btn-outline-primary:hover {
-    background-color: var(--color-orange);
+    background-color: var(--color-primary);
     color: var(--color-white);
 }
 
 .btn-outline-secondary {
-    background-color: var(--color-white);
-    color: var(--color-black);
-    border-color: var(--color-black);
+    background-color: transparent;
+    color: var(--color-text);
+    border-color: var(--color-gray);
 }
 
 .btn-outline-secondary:hover {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-gray);
+    color: var(--color-text);
 }
 
 .btn-warning {
-    background-color: var(--color-orange);
+    background-color: var(--color-accent);
     color: var(--color-white);
-    border-color: var(--color-black);
+    border-color: var(--color-accent);
 }
 
 .btn-warning:hover {
-    background-color: var(--color-black);
+    background-color: #45A572;
+    border-color: #45A572;
     color: var(--color-white);
 }
 
@@ -274,29 +293,28 @@ a:hover {
 /* Formulaires Néo-Brutalistes - Surcharge Bootstrap */
 .form-control,
 .form-select {
-    border: var(--border-medium) !important;
-    border-radius: 0 !important;
+    border: var(--border-thin) !important;
+    border-radius: 6px !important;
     padding: 0.75rem 1rem !important;
-    background-color: var(--color-white) !important;
-    color: var(--color-black) !important;
-    font-weight: 500 !important;
+    background-color: var(--color-bg-card) !important;
+    color: var(--color-text) !important;
+    font-weight: 400 !important;
     transition: all 0.2s ease !important;
 }
 
 .form-control:focus,
 .form-select:focus {
-    border-color: var(--color-orange);
-    box-shadow: 4px 4px 0px 0px var(--color-orange);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
     outline: none;
-    transform: translate(-2px, -2px);
 }
 
 .form-label {
-    font-weight: 700;
-    color: var(--color-black);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
 
@@ -308,8 +326,8 @@ a:hover {
 }
 
 .form-check-input:checked {
-    background-color: var(--color-orange);
-    border-color: var(--color-black);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .form-check-label {
@@ -319,36 +337,36 @@ a:hover {
 
 /* Alerts Néo-Brutalistes - Surcharge Bootstrap */
 .alert {
-    border: var(--border-medium) !important;
-    border-radius: 0 !important;
+    border: var(--border-thin) !important;
+    border-radius: 6px !important;
     padding: 1rem 1.5rem !important;
     margin-bottom: 1.5rem !important;
-    box-shadow: var(--shadow-brutal-hover) !important;
-    font-weight: 600 !important;
+    box-shadow: var(--shadow-soft) !important;
+    font-weight: 500 !important;
 }
 
 .alert-success {
-    background-color: var(--color-gray);
-    color: var(--color-black);
-    border-color: var(--color-black);
+    background-color: #E8F5E9;
+    color: #2E7D32;
+    border-color: var(--color-accent);
 }
 
 .alert-danger {
-    background-color: var(--color-orange);
-    color: var(--color-white);
-    border-color: var(--color-black);
+    background-color: #FFEBEE;
+    color: #C62828;
+    border-color: #EF5350;
 }
 
 .alert-info {
-    background-color: var(--color-gray);
-    color: var(--color-black);
-    border-color: var(--color-black);
+    background-color: #E3F2FD;
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary);
 }
 
 .alert-warning {
-    background-color: var(--color-orange);
-    color: var(--color-white);
-    border-color: var(--color-black);
+    background-color: #FFF3E0;
+    color: #E65100;
+    border-color: #FF9800;
 }
 
 /* Badges Néo-Brutalistes */
@@ -365,12 +383,12 @@ a:hover {
 
 .bg-primary,
 .bg-secondary {
-    background-color: var(--color-orange) !important;
+    background-color: var(--color-primary) !important;
     color: var(--color-white) !important;
 }
 
 .bg-success {
-    background-color: var(--color-black) !important;
+    background-color: var(--color-accent) !important;
     color: var(--color-white) !important;
 }
 
@@ -385,23 +403,24 @@ a:hover {
 }
 
 .breadcrumb-item a {
-    color: var(--color-orange);
-    font-weight: 700;
+    color: var(--color-primary);
+    font-weight: 600;
 }
 
 .breadcrumb-item.active {
-    color: var(--color-black);
-    font-weight: 700;
+    color: var(--color-text);
+    font-weight: 600;
 }
 
 /* Footer Néo-Brutaliste - Surcharge Bootstrap */
 footer {
-    background-color: var(--color-black) !important;
+    background-color: var(--color-text) !important;
     color: var(--color-white) !important;
-    border-top: var(--border-thick) !important;
+    border-top: var(--border-medium) !important;
+    border-top-color: var(--color-gray) !important;
     padding: 2rem 0 !important;
     margin-top: 4rem !important;
-    box-shadow: 0 -4px 0px 0px var(--color-black) !important;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05) !important;
     border-radius: 0 !important;
 }
 
@@ -444,19 +463,19 @@ footer p {
 }
 
 .card.text-white.bg-primary {
-    background-color: var(--color-orange) !important;
+    background-color: var(--color-primary) !important;
 }
 
 .card.text-white.bg-success {
-    background-color: var(--color-black) !important;
+    background-color: var(--color-accent) !important;
 }
 
 .card.text-white.bg-warning {
-    background-color: var(--color-orange) !important;
+    background-color: #FF9800 !important;
 }
 
 .card.text-white.bg-info {
-    background-color: var(--color-black) !important;
+    background-color: var(--color-primary) !important;
 }
 
 /* Responsive */
@@ -492,8 +511,7 @@ footer p {
 
 /* Utilitaires */
 .text-muted {
-    color: var(--color-black) !important;
-    opacity: 0.7;
+    color: var(--color-text-light) !important;
 }
 
 .d-grid {
@@ -558,7 +576,7 @@ footer p {
     height: 1.5rem !important;
     position: relative !important;
     display: block !important;
-    background-color: var(--color-black) !important;
+    background-color: var(--color-text) !important;
 }
 
 .navbar-toggler-icon::before,
@@ -566,8 +584,8 @@ footer p {
     content: '' !important;
     display: block !important;
     width: 100% !important;
-    height: 3px !important;
-    background-color: var(--color-black) !important;
+    height: 2px !important;
+    background-color: var(--color-text) !important;
     position: absolute !important;
     transition: all 0.3s ease !important;
     left: 0 !important;
@@ -596,23 +614,23 @@ footer p {
 
 /* Amélioration des cards pour le style néo-brutaliste */
 .card-title {
-    font-weight: 800;
-    color: var(--color-black);
+    font-weight: 700;
+    color: var(--color-text);
     margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    text-transform: none;
+    letter-spacing: 0.01em;
 }
 
 .card-text {
-    color: var(--color-black);
+    color: var(--color-text-light);
     line-height: 1.7;
 }
 
 /* Lead text */
 .lead {
     font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-black);
+    font-weight: 500;
+    color: var(--color-text-light);
     margin-bottom: 2rem;
 }
 
@@ -640,12 +658,14 @@ textarea.form-control {
 
 /* Table responsive si nécessaire */
 .table {
-    border: var(--border-thick);
-    box-shadow: var(--shadow-brutal);
+    border: var(--border-thin);
+    box-shadow: var(--shadow-soft);
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .table thead {
-    background-color: var(--color-black);
+    background-color: var(--color-primary);
     color: var(--color-white);
 }
 
@@ -654,14 +674,15 @@ textarea.form-control {
 }
 
 .table tbody tr:hover {
-    background-color: var(--color-gray);
+    background-color: var(--color-gray-light);
 }
 
 /* Amélioration des commentaires */
 .comment-section {
-    background-color: var(--color-gray);
+    background-color: var(--color-gray-light);
     padding: 1.5rem;
-    border: var(--border-medium);
+    border: var(--border-thin);
+    border-radius: 8px;
     margin-top: 2rem;
 }
 
@@ -679,9 +700,9 @@ textarea.form-control {
 
 /* Liens Admin compacts - Alternative au dropdown */
 .nav-link-admin {
-    font-size: 0.75rem !important;
+    font-size: 0.8rem !important;
     padding: 0.4rem 0.6rem !important;
-    letter-spacing: 0.03em !important;
+    letter-spacing: 0.02em !important;
 }
 
 .nav-link-admin i {
@@ -690,9 +711,9 @@ textarea.form-control {
 
 /* Séparateur visuel pour la section admin */
 .nav-separator {
-    color: var(--color-black) !important;
-    font-weight: 700 !important;
-    font-size: 1.2rem !important;
+    color: var(--color-gray) !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
     padding: 0 0.5rem !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -726,20 +747,20 @@ textarea.form-control {
 
 /* Amélioration de la lisibilité */
 strong {
-    font-weight: 700;
-    color: var(--color-black);
+    font-weight: 600;
+    color: var(--color-text);
 }
 
 /* Liens dans le texte */
 p a,
 .card-text a {
-    color: var(--color-orange);
+    color: var(--color-primary);
     text-decoration: underline;
     text-underline-offset: 2px;
 }
 
 p a:hover,
 .card-text a:hover {
-    color: var(--color-black);
-    text-decoration-thickness: 3px;
+    color: var(--color-primary-dark);
+    text-decoration-thickness: 2px;
 }

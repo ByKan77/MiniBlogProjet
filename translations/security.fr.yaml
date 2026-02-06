@@ -1,0 +1,9 @@
+# Messages de sécurité en français
+Invalid credentials.: 'Identifiants invalides.'
+Bad credentials.: 'Identifiants invalides.'
+The presented password is invalid.: 'Le mot de passe est invalide.'
+The presented password cannot be empty.: 'Le mot de passe ne peut pas être vide.'
+User account is disabled.: 'Le compte utilisateur est désactivé.'
+User account is locked.: 'Le compte utilisateur est verrouillé.'
+User account has expired.: 'Le compte utilisateur a expiré.'
+User credentials have expired.: 'Les identifiants du compte ont expiré.'

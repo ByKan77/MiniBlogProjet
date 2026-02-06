@@ -38,25 +38,13 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/users/{id}/toggle', name: 'app_admin_user_toggle', methods: ['POST'])]
-    public function toggleUser(User $user, EntityManagerInterface $entityManager): Response
+    #[Route('/users/{id}/delete', name: 'app_admin_user_delete', methods: ['POST'])]
+    public function deleteUser(User $user, EntityManagerInterface $entityManager): Response
     {
-        // On active ou désactive l'utilisateur en gérant son rôle USER
-        if (in_array('ROLE_USER', $user->getRoles())) {
-            $roles = $user->getRoles();
-            $roles = array_diff($roles, ['ROLE_USER']);
-            $user->setRoles($roles);
-        } else {
-            $roles = $user->getRoles();
-            if (!in_array('ROLE_USER', $roles)) {
-                $roles[] = 'ROLE_USER';
-            }
-            $user->setRoles($roles);
-        }
-
+        $entityManager->remove($user);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Utilisateur modifié avec succès');
+        $this->addFlash('success', 'Utilisateur supprimé avec succès');
 
         return $this->redirectToRoute('app_admin_users');
     }

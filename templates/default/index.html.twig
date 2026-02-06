@@ -18,7 +18,7 @@
                 <div class="col-md-6 mb-4">
                     <div class="card h-100">
                         {% if post.picture %}
-                        <img src="{{ post.picture }}" class="card-img-top" alt="{{ post.title }}" style="height: 200px; object-fit: cover;">
+                        <img src="{{ post.picture }}" class="card-img-top" alt="{{ post.title }}" style="height: 200px; object-fit: contain; background-color: #F0F0F0;">
                         {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ post.title }}</h5>
